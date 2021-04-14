@@ -3,8 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\ExampleEvent;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class ExampleListener
 {
@@ -15,7 +13,6 @@ class ExampleListener
      */
     public function __construct()
     {
-        //
     }
 
     /**
