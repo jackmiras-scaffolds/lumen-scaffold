@@ -1,0 +1,15 @@
+{
+    "editor.tabCompletion": "on",
+    "[php]": {
+        "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    },
+    "php-cs-fixer.onsave": true,
+    "php-cs-fixer.config": ".php_cs",
+    "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer",
+    "phpcs.standard": "phpcs-rules.xml",
+    "phpcs.executablePath": "./vendor/bin/phpcs",
+    "phpmd.rules": "phpmd-rules.xml",
+    "phpmd.command": "./vendor/bin/phpmd",
+    "phpstan.memoryLimit": "2G",
+    "phpstan.configuration": "phpstan.neon"
+}

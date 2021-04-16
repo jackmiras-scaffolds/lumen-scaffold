@@ -1,0 +1,14 @@
+{
+	"recommendations": [
+		"calebporzio.better-phpunit",
+        "junstyle.php-cs-fixer",
+        "felixfbecker.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "ecodes.vscode-phpmd",
+        "mehedidracula.php-namespace-resolver",
+        "breezelin.phpstan",
+        "ikappas.phpcs",
+        "editorconfig.editorconfig"
+	],
+	"unwantedRecommendations": []
+}
