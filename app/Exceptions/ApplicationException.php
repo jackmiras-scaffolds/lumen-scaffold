@@ -23,6 +23,6 @@ abstract class ApplicationException extends Exception
         $error->help = $this->help();
         $error->error = $this->error();
 
-        return response($error->toArray(), $this->status());
+        return response($error->toJson(), $this->status());
     }
 }
