@@ -6,9 +6,11 @@
     "type": "project",
     "require": {
         "php": "^7.3|^8.0",
+        "aws/aws-sdk-php": "^3.178",
         "laravel/lumen-framework": "^8.0"
     },
     "require-dev": {
+        "brainmaestro/composer-git-hooks": "^2.8",
         "fakerphp/faker": "^1.9.1",
         "friendsofphp/php-cs-fixer": "^2.18",
         "laravel/tinker": "^2.6",
@@ -19,6 +21,22 @@
         "phpunit/phpunit": "^9.3",
         "sebastian/phpcpd": "^6.0",
         "squizlabs/php_codesniffer": "*"
+    },
+    "extra": {
+        "hooks": {
+            "pre-commit": [
+                "./vessel fix-linters",
+                "./vessel linters",
+                "./vessel static-analysis"
+            ],
+            "pre-push": [
+                "./vessel fix-linters",
+                "./vessel linters",
+                "./vessel static-analysis",
+                "./vessel tests"
+            ],
+            "post-merge": "./vessel update-dependencies"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -31,6 +49,9 @@
         "psr-4": {
             "Tests\\": "tests/"
         }
+        "files": [
+            "app/Helpers/AwsSecretsManager.php"
+        ]
     },
     "config": {
         "preferred-install": "dist",
