@@ -61,6 +61,7 @@ $app->singleton(
 
 $app->configure('app');
 $app->configure('cors');
+$app->configure('tinker');
 $app->configure('database');
 
 /*
@@ -96,6 +97,7 @@ $app->configure('database');
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register(Laravel\Tinker\TinkerServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
