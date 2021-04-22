@@ -1,6 +1,6 @@
 {
-	"recommendations": [
-		"calebporzio.better-phpunit",
+    "recommendations": [
+        "calebporzio.better-phpunit",
         "junstyle.php-cs-fixer",
         "felixfbecker.php-debug",
         "bmewburn.vscode-intelephense-client",
@@ -9,6 +9,6 @@
         "breezelin.phpstan",
         "ikappas.phpcs",
         "editorconfig.editorconfig"
-	],
-	"unwantedRecommendations": []
+    ],
+    "unwantedRecommendations": []
 }
