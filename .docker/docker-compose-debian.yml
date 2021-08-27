@@ -1,3 +1,4 @@
+---
 version: "3"
 services:
   app:
@@ -25,7 +26,6 @@ services:
     container_name: laravel_scaffold_db
     ports:
       - "3306:3306"
-    restart: "no"
     volumes:
       - db_data:/var/lib/mysql
     environment:
@@ -42,7 +42,7 @@ services:
     ports:
       - "6379:6379"
     volumes:
-     - cache_data:/data
+      - cache_data:/data
     networks:
       - app_network
 
