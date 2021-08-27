@@ -62,6 +62,7 @@ $app->singleton(
 $app->configure('app');
 $app->configure('cors');
 $app->configure('tinker');
+$app->configure('logging');
 $app->configure('database');
 
 /*
