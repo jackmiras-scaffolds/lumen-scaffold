@@ -41,7 +41,7 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && rm -rf composer-setup.php
 
 # Configure php
-COPY .docker/php.ini /etc/php8/
+COPY .docker/php.ini-production /etc/php8/php.ini
 
 # Configure php-fpm
 COPY .docker/php-fpm.conf /etc/php8/php-fpm.conf

@@ -7,6 +7,7 @@ services:
     command: >-
       sh -c "
         apk add php8-pecl-xdebug && composer install ;\
+        cp .docker/php.ini-development /etc/php8/php.ini ;\
         cp .docker/xdebug.ini /etc/php8/conf.d/50_xdebug.ini ;\
         php -S 0.0.0.0:80 -t public"
     ports:
