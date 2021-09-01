@@ -37,8 +37,11 @@ RUN apk add --no-cache php8 \
 
 # Installing composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
-    && php8 composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && rm -rf composer-setup.php
+
+# Configure php
+COPY .docker/php.ini /etc/php8/
 
 # Configure php-fpm
 COPY .docker/php-fpm.conf /etc/php8/php-fpm.conf
@@ -66,8 +69,8 @@ COPY .docker/supervisord.ini /etc/supervisor.d/supervisord.ini
 COPY . .
 RUN composer install --no-dev
 
-# Configure Lumen logs
-RUN ln -sf /dev/stdout /var/www/html/storage/*
+# Configure Laravel logs
+RUN ln -sf /dev/stdout /var/www/html/storage/laravel.log
 
 EXPOSE 80
 CMD ["supervisord", "-c", "/etc/supervisor.d/supervisord.ini"]
