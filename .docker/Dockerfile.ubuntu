@@ -48,6 +48,9 @@ RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && rm -rf composer-setup.php
 
+# Configure php
+COPY .docker/php.ini /etc/php/8.0/cli/php.ini
+
 # Configure php-fpm
 COPY .docker/php-fpm.conf /etc/php/8.0/fpm/php-fpm.conf
 COPY .docker/fastcgi-php.conf /etc/nginx/fastcgi-php.conf
@@ -64,8 +67,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf \
 
 # Configure logs
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log \
-    && ln -sf /dev/stdout /var/www/html/storage/laravel.log
+    && ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Configure supervisor
 RUN mkdir -p /etc/supervisor.d/
@@ -81,8 +83,11 @@ RUN apt-get remove -y --purge software-properties-common \
 COPY . .
 RUN composer install --no-dev
 
-# Setting up permissions for Laravel storage
+# Setting up permissions for Lumen storage
 RUN chown -R www-data /var/www/html/storage
+
+# Configure Lumen logs
+RUN ln -sf /dev/stdout /var/www/html/storage/lumen.log
 
 EXPOSE 80
 CMD ["supervisord", "-c", "/etc/supervisor.d/supervisord.ini"]
