@@ -7,7 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "aws/aws-sdk-php": "^3.178",
-        "laravel/lumen-framework": "^8.0"
+        "laravel/lumen-framework": "^8.31"
     },
     "require-dev": {
         "brainmaestro/composer-git-hooks": "^2.8",
@@ -18,7 +18,7 @@
         "nunomaduro/larastan": "^0.7.3",
         "pestphp/pest": "^1.0",
         "phpmd/phpmd": "^2.9",
-        "phpunit/phpunit": "^9.3",
+        "phpunit/phpunit": "^9.5.10",
         "sebastian/phpcpd": "^6.0",
         "squizlabs/php_codesniffer": "*"
     },
